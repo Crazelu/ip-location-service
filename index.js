@@ -8,6 +8,8 @@ const app = express();
 
 app.get('/location/:ip', (req, res) => {
     satelize.satelize({ip:req.params.ip}, function(err, payload) {
+        console.log(payload);
+        if(err != null) res.send("");
         res.send(payload.country.en);
        });
 });
